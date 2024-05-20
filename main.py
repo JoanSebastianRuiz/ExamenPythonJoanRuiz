@@ -1,9 +1,6 @@
 """
 gestion de pedidos y ventas de productos de maquillaje
 Permitir modificacion de pedidos o cancelacion solo si no se han pagado
-Para hacer un pedido se debe pedir el documento del cliente y si tiene otro pedido hecho solo puede hacer otro 
-si ya lo ha pagado (se sobreescriben los pedidos)
-Para finalizar el programa se debe pedir confirmacion
 
 """
 from datetime import *
@@ -82,7 +79,22 @@ while bandera==False:
         bandera=False
 
     elif opcion=="4":
-        bandera=True
+        print("¿Esta seguro que quiere finalizar el programa?")
+        print("1. Si")
+        print("2. No")
+
+        while bandera==False:
+            opcion=solicitar_opcion()
+            if opcion=="1" or opcion=="2":
+                bandera=True
+            else:
+                print("Numero de opcion fuera de rango")
+        bandera=False
+
+        if opcion=="1":
+            bandera=True
+        elif opcion=="2":
+            bandera=False
     else:
         print("Numero de opcion fuera de rango")
         print("")

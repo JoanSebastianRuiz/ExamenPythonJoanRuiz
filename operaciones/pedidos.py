@@ -86,6 +86,7 @@ def lista_pedido():
             return False
             
 def registrar_pedido():
+    datos_pedidos=cargar_pedidos(RUTA_REGISTRO_PEDIDOS)
     bandera=False
     informacion_pedido={}
     while bandera==False:
@@ -94,6 +95,28 @@ def registrar_pedido():
             bandera=True
         else:
             print("Opcion invalida")
+
+
+    for diccionario in datos_pedidos:
+        if diccionario["documento"]==documento and diccionario["pago"]==False:
+            print("No puede realizar mas pedidos hasta que realice el pago del pedido que tiene registrado")
+            return False
+        
+        elif diccionario["documento"]==documento and diccionario["pago"]==True:
+            informacion_pedido["pago"]=False
+            lista=lista_pedido()
+            if lista==False:
+                return False
+            
+            informacion_pedido["productos"]=lista
+            precio_total=0
+            for diccionario in lista:
+                precio_total+=int(diccionario["precio"])
+            informacion_pedido["precio total"]=precio_total
+            print("El pedido se ha registrado correctamente")
+            print("")
+            return informacion_pedido
+
     informacion_pedido["documento"]=documento
     informacion_pedido["pago"]=False
 
