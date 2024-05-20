@@ -1,0 +1,108 @@
+[
+    {
+        "documento": "1095837983",
+        "pago": false,
+        "productos": [
+            {
+                "producto": "base perfecta",
+                "precio": "25000"
+            },
+            {
+                "producto": "brillo de labios transparente",
+                "precio": "12000"
+            }
+        ],
+        "precio total": 37000
+    },
+    {
+        "documento": "63325117",
+        "pago": true,
+        "productos": [
+            {
+                "producto": "base perfecta",
+                "precio": "25000"
+            },
+            {
+                "producto": "brillo de labios transparente",
+                "precio": "12000"
+            }
+        ],
+        "precio total": 37000
+    },
+    {
+        "documento": "91218991",
+        "pago": false,
+        "productos": [
+            {
+                "producto": "sombras neutras",
+                "precio": "20000"
+            },
+            {
+                "producto": "mascara de pesta\u00f1as alargadora",
+                "precio": "25000"
+            },
+            {
+                "producto": "labial liquido mate",
+                "precio": "18000"
+            }
+        ],
+        "precio total": 63000
+    },
+    {
+        "documento": "62547856",
+        "pago": false,
+        "productos": [
+            {
+                "producto": "base perfecta",
+                "precio": "25000"
+            },
+            {
+                "producto": "base perfecta",
+                "precio": "25000"
+            },
+            {
+                "producto": "base perfecta",
+                "precio": "25000"
+            }
+        ],
+        "precio total": 75000
+    },
+    {
+        "documento": "1005458663",
+        "pago": false,
+        "productos": [
+            {
+                "producto": "mascara de pesta\u00f1as voluminizadora",
+                "precio": "22000"
+            },
+            {
+                "producto": "mascara de pesta\u00f1as alargadora",
+                "precio": "25000"
+            },
+            {
+                "producto": "mascara de pesta\u00f1as waterproof",
+                "precio": "28000"
+            }
+        ],
+        "precio total": 75000
+    },
+    {
+        "documento": "1025456321",
+        "pago": false,
+        "productos": [
+            {
+                "producto": "labial liquido mate",
+                "precio": "18000"
+            },
+            {
+                "producto": "sombras de ojos mate",
+                "precio": "18000"
+            },
+            {
+                "producto": "mascara de pesta\u00f1as waterproof",
+                "precio": "28000"
+            }
+        ],
+        "precio total": 64000
+    }
+]
