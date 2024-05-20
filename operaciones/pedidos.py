@@ -106,6 +106,8 @@ def registrar_pedido():
     for diccionario in lista:
         precio_total+=int(diccionario["precio"])
     informacion_pedido["precio total"]=precio_total
+    print("El pedido se ha registrado correctamente")
+    print("")
     return informacion_pedido
 
 

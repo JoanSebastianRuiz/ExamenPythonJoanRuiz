@@ -1,7 +1,7 @@
 [
     {
         "documento": "1095837983",
-        "pago": false,
+        "pago": true,
         "productos": [
             {
                 "producto": "base perfecta",

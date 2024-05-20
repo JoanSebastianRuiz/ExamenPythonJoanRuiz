@@ -1,4 +1,5 @@
 from datos.validaciones import *
+from datos.manejo_archivos import *
 
 def consultar_pedidos(datos):
     for diccionario in datos:
@@ -40,3 +41,8 @@ def consultar_pedidos_documento(datos):
     
     if documento_encontrado==False:
         print("El documento encontrado no tiene pedidos registrados")
+        print("")
+
+def consultar_pagos(datos):
+    ventas=cargar_ventas(datos)
+    print(ventas)

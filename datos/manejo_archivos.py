@@ -3,6 +3,7 @@ import json
 
 RUTA_PRODUCTOS="archivos/productos.csv"
 RUTA_REGISTRO_PEDIDOS="archivos/registro_pedidos.json"
+RUTA_PAGOS="archivos/pagos.txt"
 
 def cargar_productos(ruta):
     lista_productos=[]
@@ -23,3 +24,15 @@ def subir_pedidos(ruta,datos):
     informacion=json.dumps(datos, indent=4)
     file.write(informacion)
     file.close()
+
+def registrar_venta(ruta,cadena):
+    file=open(ruta,"a")
+    cadena=cadena+"\n"
+    file.write(cadena)
+    file.close()
+
+def cargar_ventas(ruta):
+    file=open(ruta)
+    informacion=file.read()
+    file.close()
+    return informacion
