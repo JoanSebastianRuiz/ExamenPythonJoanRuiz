@@ -85,8 +85,7 @@ def lista_pedido():
         elif opcion=="2":
             return False
             
-def registrar_pedido():
-    datos_pedidos=cargar_pedidos(RUTA_REGISTRO_PEDIDOS)
+def registrar_pedido(datos_pedidos):
     bandera=False
     informacion_pedido={}
     while bandera==False:
@@ -94,34 +93,39 @@ def registrar_pedido():
         if validar_numero(documento)==True and len(documento)>=8 and len(documento)<=10:
             bandera=True
         else:
-            print("Opcion invalida")
+            print("documento invalido")
+            print("")
 
 
     for diccionario in datos_pedidos:
         if diccionario["documento"]==documento and diccionario["pago"]==False:
             print("No puede realizar mas pedidos hasta que realice el pago del pedido que tiene registrado")
+            print("")
             return False
         
         elif diccionario["documento"]==documento and diccionario["pago"]==True:
-            informacion_pedido["pago"]=False
+            diccionario["pago"]=False
             lista=lista_pedido()
             if lista==False:
+                print("Su lista de productos se ha cancelado")
+                print("")
                 return False
             
-            informacion_pedido["productos"]=lista
+            diccionario["productos"]=lista
             precio_total=0
             for diccionario in lista:
                 precio_total+=int(diccionario["precio"])
-            informacion_pedido["precio total"]=precio_total
-            print("El pedido se ha registrado correctamente")
-            print("")
-            return informacion_pedido
+            diccionario["precio total"]=precio_total
+            subir_pedidos(datos_pedidos)
+            return True
 
     informacion_pedido["documento"]=documento
     informacion_pedido["pago"]=False
 
     lista=lista_pedido()
     if lista==False:
+        print("Su lista de productos se ha cancelado")
+        print("")
         return False
     
     informacion_pedido["productos"]=lista
@@ -134,9 +138,69 @@ def registrar_pedido():
     return informacion_pedido
 
 
-    
+def cancelar_pedido(datos_pedidos):
+    bandera=False
+    documento_encontrado=False
 
+    while bandera==False:
+        documento=input("Ingrese el documento al que esta relacionado el pedido que quiere cancelar: ")
+        if validar_numero(documento)==True and len(documento)>=8 and len(documento)<=10:
+            bandera=True
+        else:
+            print("Documento invalido")
+            print("")
+
+    for diccionario in datos_pedidos:
+        if diccionario["documento"]==documento and diccionario["pago"]==False:
+            return diccionario
+        
+        elif diccionario["documento"]==documento and diccionario["pago"]==True:
+            print("El pedido no se puede cancelar porque ya ha sido pagado")
+            print("")
+            return False
+            
     
+    if documento_encontrado==False:
+        print("El documento ingresado no se encuentra asociado a ningun pedido")
+        print("")
+        return False
+
+
+def modificar_pedido(datos_pedidos):
+    bandera=False
+    
+    while bandera==False:
+        documento=input("Ingrese el documento asociado al pedido que quiere modificar: ")
+        if validar_numero(documento)==True and len(documento)>=8 and len(documento)<=10:
+            bandera=True
+        else:
+            print("Documento invalido")
+            print("")
+
+
+    for diccionario in datos_pedidos:
+        if diccionario["documento"]==documento and diccionario["pago"]==True:
+            print("No se puede modificar el pedido porque ya se ha realizado el pago")
+            print("")
+            return False
+        
+        elif diccionario["documento"]==documento and diccionario["pago"]==False:
+            lista=lista_pedido()
+            if lista==False:
+                return False
+            
+            diccionario["productos"]=lista
+            precio_total=0
+            for diccionario in lista:
+                precio_total+=int(diccionario["precio"])
+            diccionario["precio total"]=precio_total
+            return datos_pedidos
+
+
+    print("El documento ingresado no se encuentra asociado a ningun pedido")
+    print("")
+    return False
+
 
 
     

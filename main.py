@@ -20,14 +20,15 @@ while bandera==False:
     if opcion=="1":
         try:
             datos=cargar_pedidos(RUTA_REGISTRO_PEDIDOS)
-            pedido=registrar_pedido()
-            if pedido!=False:
+            pedido=registrar_pedido(datos)
+            if pedido==True:
+                print("El pedido se ha registrado correctamente")
+                print("")
+            elif pedido!=True and pedido!=False:
                 datos.append(pedido)
                 subir_pedidos(RUTA_REGISTRO_PEDIDOS,datos)
                 print("El pedido se ha registrado correctamente")
                 print("")
-            else:
-                print("Su lista de productos se ha cancelado")
             
         except Exception:
             print("Datos erroneos")
@@ -79,6 +80,33 @@ while bandera==False:
         bandera=False
 
     elif opcion=="4":
+        try:
+            datos=cargar_pedidos(RUTA_REGISTRO_PEDIDOS)
+            pedido=cancelar_pedido(datos)
+            if pedido!=False:
+                datos.remove(pedido)
+                subir_pedidos(RUTA_REGISTRO_PEDIDOS,datos)
+                print("El pedido se ha cancelado correctamente")
+                print("")
+            
+        except Exception:
+            print("Datos erroneos")
+            print("")
+
+    elif opcion=="5":
+        try:
+            datos=cargar_pedidos(RUTA_REGISTRO_PEDIDOS)
+            datos_subir=modificar_pedido(datos)
+            if datos_subir!=False:
+                subir_pedidos(RUTA_REGISTRO_PEDIDOS,datos_subir)
+                print("El pedido se ha modificado correctamente")
+                print("")
+            
+        except Exception:
+            print("Datos erroneos")
+            print("")
+
+    elif opcion=="6":
         print("¿Esta seguro que quiere finalizar el programa?")
         print("1. Si")
         print("2. No")

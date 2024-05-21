@@ -1,20 +1,5 @@
 [
     {
-        "documento": "1095837983",
-        "pago": true,
-        "productos": [
-            {
-                "producto": "base perfecta",
-                "precio": "25000"
-            },
-            {
-                "producto": "brillo de labios transparente",
-                "precio": "12000"
-            }
-        ],
-        "precio total": 37000
-    },
-    {
         "documento": "63325117",
         "pago": true,
         "productos": [

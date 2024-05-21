@@ -3,7 +3,9 @@ def menu_principal():
     print("1. Realizar pedido")
     print("2. Registrar pago")
     print("3. Hacer consulta")
-    print("4. Salir")
+    print("4. Cancelar pedido")
+    print("5. Modificar pedido")
+    print("6. Salir")
     print("")
 
 def menu_consulta():
